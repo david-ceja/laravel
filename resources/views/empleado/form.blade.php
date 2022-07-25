@@ -1,0 +1,1 @@
+Formulario en común con Create y Edit.
