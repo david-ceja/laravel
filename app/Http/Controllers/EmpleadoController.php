@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Empelado;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 
-class EmpeladoController extends Controller
+class EmpleadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EmpeladoController extends Controller
      */
     public function index()
     {
-        //
+        return view('empleado.index');
     }
 
     /**
@@ -35,16 +35,20 @@ class EmpeladoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$datosEmpleado = $request->all();
+        $datosEmpleado = $request->except('_token');
+        Empleado::insert($datosEmpleado);
+        //return response()->json($datosEmpleado);
+        echo 'Empleado Registrado!';
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Empelado  $empelado
+     * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function show(Empelado $empelado)
+    public function show(Empleado $empleado)
     {
         //
     }
@@ -52,10 +56,10 @@ class EmpeladoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Empelado  $empelado
+     * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empelado $empelado)
+    public function edit(Empleado $empleado)
     {
         //
     }
@@ -64,10 +68,10 @@ class EmpeladoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Empelado  $empelado
+     * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empelado $empelado)
+    public function update(Request $request, Empleado $empleado)
     {
         //
     }
@@ -75,10 +79,10 @@ class EmpeladoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Empelado  $empelado
+     * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empelado $empelado)
+    public function destroy(Empleado $empleado)
     {
         //
     }
